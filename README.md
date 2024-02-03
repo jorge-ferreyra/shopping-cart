@@ -2,7 +2,7 @@
 
 1. Ecommerce
 
-- Mostrar una lista de productos provenientes de un JSON
+- Mostrar una lista de productos provenientes de un JSON [check]
 - Añadir un filtro por categoría
 - Añadir un filtro por precio
 
