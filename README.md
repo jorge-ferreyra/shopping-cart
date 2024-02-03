@@ -3,8 +3,8 @@
 1. Ecommerce
 
 - Mostrar una lista de productos provenientes de un JSON [check]
-- Añadir un filtro por categoría
-- Añadir un filtro por precio
+- Añadir un filtro por categoría [check]
+- Añadir un filtro por precio [check]
 
 2. Cart
 
