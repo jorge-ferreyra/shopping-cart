@@ -5,6 +5,7 @@
 - Mostrar una lista de productos provenientes de un JSON [check]
 - Añadir un filtro por categoría [check]
 - Añadir un filtro por precio [check]
+- Usar useContext para evitar pasar props innecesarias y evitar prop drilling
 
 2. Cart
 
