@@ -1,6 +1,6 @@
 .footer {
   position: fixed;
-  right: 16px;
+  left: 16px;
   bottom: 16px;
   text-align: left;
   background: rgba(0, 0, 0, .7);
