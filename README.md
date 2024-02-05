@@ -13,4 +13,4 @@
 - Eliminar productos del carrito [check]
 - Modificar la cantidad de productos del carrito [check]
 - Sincronizar los cambios del carrito con la lista de productos [check]
-- Guardar en un localStorage el carrito para que se recupere al recargar la página
+- Guardar en un localStorage el carrito para que se recupere al recargar la página [check]
