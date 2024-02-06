@@ -2,10 +2,12 @@
   background: #000;
   display: none;
   padding: 32px;
-  position: absolute;
+  position: fixed;
   right: 0;
   top: 0;
   width: 200px;
+  z-index: 12;
+  overflow-y:auto;
 }
 
 .cart img {
@@ -52,14 +54,15 @@
   padding: 4px;
   position: fixed;
   right: 18px;
-  top: 12px;
+  top: 20px;
   transition: all .5s ease;
   width: 32px;
   z-index: 9999;
 }
 
-.cart-button.clicked {
-  position: absolute;
+.cart-delete {
+  width: 100%;
+  padding-bottom: 44px;
 }
 
 .cart-button:hover {

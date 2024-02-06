@@ -24,9 +24,20 @@
   gap: 1rem;
   box-shadow: 0 0 10px 10px rgba(0, 0, 0, .1);
   border-radius: 4px;
-  background: #111;
+  background: #1b1b1b;
   color: #fff;
   padding: 1rem;
+  position: relative;
+}
+
+.products li div a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
 }
   
 .products h3 {
@@ -45,4 +56,9 @@
   display: block;
   object-fit: cover;
   background: #fff;
+}
+
+.products button {
+  position: relative;
+  z-index: 150;
 }

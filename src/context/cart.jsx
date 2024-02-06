@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { createContext, useReducer, useState } from "react";
+import { createContext, useReducer } from "react";
 
 export const CartContext = createContext()
 
@@ -74,20 +74,10 @@ const useCartReducer = () => {
 export function CartProvider ({ children }) {
   const { cart, addToCart, removeFromCart, clearCart} = useCartReducer()
 
-  const [cartIcon, setCartIcon] = useState('off')
 
-  const handleClickCartIcon = () => {
-    const newCartIcon = cartIcon === 'off' ? 'on' : 'off'
-    setCartIcon(newCartIcon)
-    if(newCartIcon === 'on') {
-      document.querySelector('.cart-button').classList.add('clicked')
-    } else {
-      document.querySelector('.cart-button.clicked').classList.remove('clicked')
-    }
-  }
   return (
     <CartContext.Provider value={{
-      cart, addToCart, removeFromCart, clearCart, handleClickCartIcon
+      cart, addToCart, removeFromCart, clearCart
     }}>
       {children}
     </CartContext.Provider>

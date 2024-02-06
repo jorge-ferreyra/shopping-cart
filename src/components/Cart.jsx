@@ -23,10 +23,10 @@ function CartItem ({ thumbnail, price, title, quantity, addToCart }) {
 
 export function Cart () {
   const cartCheckboxId = useId()
-  const { cart, clearCart, addToCart, handleClickCartIcon } = useCart()
+  const { cart, clearCart, addToCart } = useCart()
   return (
     <>
-      <label className="cart-button" htmlFor={cartCheckboxId} onClick={handleClickCartIcon}>
+      <label className="cart-button" htmlFor={cartCheckboxId}>
         <CartIcon />
       </label>
       <input id={cartCheckboxId} type="checkbox" hidden />
@@ -37,10 +37,12 @@ export function Cart () {
             <CartItem key={product.id} {...product} addToCart={() => addToCart(product)} />
           ))}
         </ul>
-
-        <button onClick={clearCart}>
-          <ClearCartIcon />
-        </button>
+        <div className='cart-delete'>
+          <button onClick={clearCart}>
+            <ClearCartIcon />
+          </button>
+        </div>
+        
       </aside>
     </>
   )

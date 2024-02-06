@@ -8,6 +8,9 @@ import { useFilters } from './hooks/useFilters.jsx'
 import { Cart } from './components/Cart.jsx'
 import { CartProvider } from './context/cart.jsx'
 
+///import { Link, BrowserRouter, Route, Switch } from 'react-router-dom'
+import { TopMenu } from './components/TopMenu.jsx'
+
 function App() {
   const { filterProducts } = useFilters()
 
@@ -16,6 +19,7 @@ function App() {
   return (
     <CartProvider>
       <section className='main-section'>
+        <TopMenu />
         <Header />
         <Cart />
         <Products products={filteredProducts} />
