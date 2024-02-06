@@ -23,10 +23,10 @@ function CartItem ({ thumbnail, price, title, quantity, addToCart }) {
 
 export function Cart () {
   const cartCheckboxId = useId()
-  const { cart, clearCart, addToCart } = useCart()
+  const { cart, clearCart, addToCart, handleClickCartIcon } = useCart()
   return (
     <>
-      <label className="cart-button" htmlFor={cartCheckboxId}>
+      <label className="cart-button" htmlFor={cartCheckboxId} onClick={handleClickCartIcon}>
         <CartIcon />
       </label>
       <input id={cartCheckboxId} type="checkbox" hidden />

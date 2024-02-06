@@ -1,3 +1,4 @@
+import './App.css'
 import { products as listProducts } from './mocks/products.json'
 import { Products } from './components/Products.jsx'
 import { Header } from './components/Header.jsx'
@@ -14,10 +15,12 @@ function App() {
 
   return (
     <CartProvider>
-      <Header />
-      <Cart />
-      <Products products={filteredProducts} />
-      { IS_DEVELOPMENT && <Footer />}
+      <section className='main-section'>
+        <Header />
+        <Cart />
+        <Products products={filteredProducts} />
+        { IS_DEVELOPMENT && <Footer />}
+      </section>
     </CartProvider>
   )
 }
