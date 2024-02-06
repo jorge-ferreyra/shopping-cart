@@ -6,9 +6,11 @@
   right: 0;
   top: 0;
   width: 200px;
-  z-index: 12;
-  overflow-y:auto;
+  z-index: 14;
+  overflow-y: auto;
+  animation: translateIn 1s ease forwards;
 }
+
 
 .cart img {
   aspect-ratio: 16/9;
@@ -72,5 +74,23 @@
 .cart-button ~ input:checked ~ .cart {
   height: 100%;
   display: block;
-  translate: (-400px, 0);
+  
+}
+
+@keyframes translateIn {
+  from{
+    transform: translate(270px, 0);
+  }
+  to{
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes translateOut {
+  from{
+    transform: translate(0, 0);
+  }
+  to{
+    transform: translate(270px, 0);
+  }
 }

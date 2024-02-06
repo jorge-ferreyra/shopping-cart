@@ -72,6 +72,7 @@ const useCartReducer = () => {
 }
 
 export function CartProvider ({ children }) {
+
   const { cart, addToCart, removeFromCart, clearCart} = useCartReducer()
 
 

@@ -12,7 +12,7 @@
   animation: blur linear both;
   animation-timeline: scroll(root);
   animation-range: 0 100px;
-  z-index: 11;
+  z-index: 12;
 }
 
 .top-menu a {
