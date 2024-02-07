@@ -9,7 +9,6 @@ export function CartPage () {
       <section className="cart-section">
         <h1>Cart</h1>
       </section>
-      
     </CartProvider>
     
   )
