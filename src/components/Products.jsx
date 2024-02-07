@@ -3,6 +3,7 @@ import './Products.css'
 import { AddToCartIcon, RemoveFromCartIcon } from './Icons.jsx'
 import { useCart } from '../hooks/useCart.jsx'
 
+
 export function Products ({ products }) {
   const { addToCart, removeFromCart, cart } = useCart()
 
@@ -15,7 +16,6 @@ export function Products ({ products }) {
       <ul>
         {products.slice(0, 10).map(product => {
           const isProductInCart = checkProductInCart(product)
-
           return (
             <li key={product.id}>
               <img src={product.thumbnail} alt={product.title} />

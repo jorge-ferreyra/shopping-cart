@@ -8,9 +8,9 @@
   width: 200px;
   z-index: 14;
   overflow-y: auto;
-  animation: translateIn 1s ease forwards;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
 }
-
 
 .cart img {
   aspect-ratio: 16/9;
@@ -74,23 +74,29 @@
 .cart-button ~ input:checked ~ .cart {
   height: 100%;
   display: block;
-  
+  animation-name: translateIn;
+}
+
+.cart-button ~ input:not(:checked) ~ .cart {
+  height: 100%;
+  display: block;
+  animation-name: translateOut;
 }
 
 @keyframes translateIn {
-  from{
-    transform: translate(270px, 0);
+  from {
+    transform: translateX(270px);
   }
-  to{
-    transform: translate(0, 0);
+  to {
+    transform: translateX(0);
   }
 }
 
 @keyframes translateOut {
-  from{
-    transform: translate(0, 0);
+  from {
+    transform: translateX(0);
   }
-  to{
-    transform: translate(270px, 0);
+  to {
+    transform: translateX(270px);
   }
 }
