@@ -1,6 +1,6 @@
 import { useId } from 'react'
 import './Filters.css'
-import { useFilters } from '../hooks/useFilters'
+import { useFilters } from '../../hooks/useFilters'
 
 // eslint-disable-next-line react/prop-types
 export function Filters () {

@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
 import './Cart.css'
 import { useId } from "react";
-import { CartIcon, ClearCartIcon } from "./Icons";
-import { useCart } from '../hooks/useCart';
+import { CartIcon, ClearCartIcon } from "../Icons/Icons";
+import { useCart } from '../../hooks/useCart';
 
 function CartItem ({ thumbnail, price, title, quantity, addToCart }) {
   return (

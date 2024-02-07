@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
-import { useCart } from '../hooks/useCart'
-import { useFilters } from '../hooks/useFilters'
+import { useCart } from '../../hooks/useCart'
+import { useFilters } from '../../hooks/useFilters'
 import './Footer.css'
 
 export function Footer () {
