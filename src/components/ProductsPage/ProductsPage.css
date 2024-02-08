@@ -36,6 +36,11 @@
   display: flex;
   align-items: center;
   border: 1px solid rgb(118, 118, 118);
+  transition: background-color .5s linear;
+}
+
+.searchProduct a:hover {
+  background-color: #747bff;
 }
 
 .searchProduct a img {

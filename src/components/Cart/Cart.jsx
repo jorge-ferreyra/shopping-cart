@@ -29,6 +29,7 @@ export function Cart () {
       <label className="cart-button" htmlFor={cartCheckboxId}>
         <CartIcon />
       </label>
+
       <input id={cartCheckboxId} type="checkbox" hidden />
 
       <aside className="cart">
