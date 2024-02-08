@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import searchImg from '../../img/search.svg'
 import './ProductsPage.css'
 import { TopMenu } from "../TopMenu/TopMenu.jsx"
 import { Cart } from '../Cart/Cart.jsx'
@@ -18,8 +19,10 @@ export function ProductsPage ({ products }) {
       <section className="products-section">
         <h1>Products</h1>
         <form className='searchProduct' action="">
-          <label id='searchProducts' htmlFor="searchProducts">Search:</label>
           <input id='searchProducts' type="text" placeholder='Enter a product to search...' />
+          <a href="">
+            <img src={searchImg} alt="" />
+          </a>
         </form>
         <div className='products-main'>
           <ul className='products-list'>
