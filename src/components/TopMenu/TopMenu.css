@@ -16,7 +16,23 @@
 }
 
 .top-menu a {
-  padding: 24px;
+  padding: 8px;
+  margin: 8px;
+}
+
+.card-backdrop {
+  position: absolute;
+  background: rgba(0, 0, 0, .4);
+  border-radius: 6px;
+  backdrop-filter: blur(4px);
+  left: var(--left);
+  top: var(--top);
+  width: var(--width);
+  height: var(--height);
+  transition: all .4s ease-out;
+  overflow: none;
+  opacity: 0;
+  z-index: -10;
 }
 
 @keyframes blur {

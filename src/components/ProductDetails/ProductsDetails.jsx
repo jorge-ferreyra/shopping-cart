@@ -38,6 +38,10 @@ export function ProductsDetails ({ products }) {
         </div>
         <div className='product-description'>
           <p>{product.description}</p>
+          
+        </div>
+        <div className='card-recomendation'>
+          <h2>Productos Recomendados</h2>
         </div>
       </article>
     </>
