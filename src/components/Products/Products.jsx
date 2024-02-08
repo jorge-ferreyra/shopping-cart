@@ -2,7 +2,7 @@
 import './Products.css'
 import { AddToCartIcon, RemoveFromCartIcon } from '../Icons/Icons.jsx'
 import { useCart } from '../../hooks/useCart.jsx'
-
+import { Link } from 'react-router-dom'
 
 export function Products ({ products }) {
   const { addToCart, removeFromCart, cart } = useCart()
@@ -20,7 +20,7 @@ export function Products ({ products }) {
             <li key={product.id}>
               <img src={product.thumbnail} alt={product.title} />
               <div>
-                <a>{product.title}</a> - ${product.price}
+                <Link to={`/products/:${product.title}`}>{product.title}</Link> - ${product.price}
               </div>
               <div>
                 <button style={{backgroundColor: isProductInCart ? 'red' : '#09f'}} onClick={() => {
