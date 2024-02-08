@@ -81,13 +81,13 @@
   background: #747bff;
 }
 
-.cart-button ~ input:checked ~ .cart {
+.cart.open {
   height: 100%;
   display: block;
   animation-name: translateIn;
 }
 
-.cart-button ~ input:not(:checked) ~ .cart {
+.cart.close {
   height: 100%;
   display: block;
   animation-name: translateOut;

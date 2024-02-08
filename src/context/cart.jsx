@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { createContext, useReducer } from "react";
+import { createContext, useReducer, useState } from "react";
 
 export const CartContext = createContext()
 
@@ -72,13 +72,12 @@ const useCartReducer = () => {
 }
 
 export function CartProvider ({ children }) {
-
+  const [animationButton, setAnimationButton] = useState('')
   const { cart, addToCart, removeFromCart, clearCart} = useCartReducer()
-
 
   return (
     <CartContext.Provider value={{
-      cart, addToCart, removeFromCart, clearCart
+      cart, addToCart, removeFromCart, clearCart, animationButton, setAnimationButton
     }}>
       {children}
     </CartContext.Provider>

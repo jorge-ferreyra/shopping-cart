@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import './Cart.css'
-import { useId } from "react";
+import { useEffect, useId } from "react";
 import { CartIcon, ClearCartIcon } from "../Icons/Icons";
 import { useCart } from '../../hooks/useCart';
 
@@ -23,16 +23,25 @@ function CartItem ({ thumbnail, price, title, quantity, addToCart }) {
 
 export function Cart () {
   const cartCheckboxId = useId()
-  const { cart, clearCart, addToCart } = useCart()
+  const { cart, clearCart, addToCart, animationButton, setAnimationButton } = useCart()
+
+  useEffect(() => {
+    setAnimationButton('')
+  }, [])
+
+  const handleChangeCart = () => {
+    setAnimationButton(animationButton === 'open' ? 'close' : 'open')
+  }
+
   return (
     <>
-      <label className="cart-button" htmlFor={cartCheckboxId}>
+      <label className="cart-button" htmlFor={cartCheckboxId} onClick={handleChangeCart}>
         <CartIcon />
       </label>
 
       <input id={cartCheckboxId} type="checkbox" hidden />
 
-      <aside className="cart">
+      <aside className={`cart ${animationButton}`}>
         <ul>
           {cart.map(product => (
             <CartItem key={product.id} {...product} addToCart={() => addToCart(product)} />

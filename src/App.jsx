@@ -7,9 +7,7 @@ import { CartPage } from './components/CartPage/CartPage.jsx'
 import { CartProvider } from './context/cart.jsx'
 import { ProductsDetails } from './components/ProductDetails/ProductsDetails.jsx'
 
-
 function App() {
-
   return (
     <CartProvider>
       <BrowserRouter>
