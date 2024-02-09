@@ -86,6 +86,16 @@
   position: relative;
 }
 
+.products-list li div span {
+  color: #09f;
+  font-size: 14px;
+}
+
+.products-list li div del {
+  color: grey;
+  font-size: 14px;
+}
+
 .products-list li div a::before {
   content: '';
   position: absolute;

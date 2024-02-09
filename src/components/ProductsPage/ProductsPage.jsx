@@ -3,12 +3,12 @@ import searchImg from '../../img/search.svg'
 import './ProductsPage.css'
 import { TopMenu } from "../TopMenu/TopMenu.jsx"
 import { Cart } from '../Cart/Cart.jsx'
-
+import { Link } from 'react-router-dom'
 import { AddToCartIcon, RemoveFromCartIcon } from '../Icons/Icons.jsx'
 import { useCart } from '../../hooks/useCart.jsx'
 
 export function ProductsPage ({ products }) {
-  const { addToCart, removeFromCart, checkProductInCart } = useCart()
+  const { addToCart, removeFromCart, checkProductInCart, previousPrice } = useCart()
 
   return (
     <>
@@ -29,7 +29,9 @@ export function ProductsPage ({ products }) {
                 <li key={product.id}>
                   <img src={product.thumbnail} alt={product.title} />
                   <div>
-                    <a>{product.title}</a> - ${product.price}
+                    <Link to={`/products/:${product.title}`}>{product.title}</Link>
+                    <br />
+                    ${previousPrice(product.discountPercentage, product.price)} <span>{product.discountPercentage}% OFF</span> <del>${product.price}</del>
                   </div>
                   <div>
                     <button style={{backgroundColor: isProductInCart ? 'red' : '#09f'}} onClick={() => {

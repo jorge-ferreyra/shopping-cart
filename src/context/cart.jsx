@@ -76,6 +76,12 @@ export function CartProvider ({ children }) {
   const [randomProducts, setRandomProducts] = useState([])
   const { cart, addToCart, removeFromCart, clearCart} = useCartReducer()
 
+  const previousPrice = (percentage, price) => {
+    const discount = percentage * price / 100
+    const finalPrice = price - discount
+    return finalPrice.toFixed(2)
+  }
+
   const checkProductInCart = product => {
     return cart.some(item => item.id === product.id)
   }
@@ -83,7 +89,8 @@ export function CartProvider ({ children }) {
   return (
     <CartContext.Provider value={{
       cart, addToCart, removeFromCart, clearCart, checkProductInCart,
-      animationButton, setAnimationButton, randomProducts, setRandomProducts
+      animationButton, setAnimationButton, randomProducts, setRandomProducts,
+      previousPrice
     }}>
       {children}
     </CartContext.Provider>

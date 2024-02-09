@@ -30,6 +30,16 @@
   position: relative;
 }
 
+.products li div span {
+  color: #09f;
+  font-size: 14px;
+}
+
+.products li div del {
+  color: grey;
+  font-size: 14px;
+}
+
 .products li div a::before {
   content: '';
   position: absolute;

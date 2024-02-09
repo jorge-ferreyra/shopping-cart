@@ -5,7 +5,7 @@ import { useCart } from '../../hooks/useCart.jsx'
 import { Link } from 'react-router-dom'
 
 export function Products ({ products }) {
-  const { addToCart, removeFromCart, checkProductInCart } = useCart()
+  const { addToCart, removeFromCart, checkProductInCart, previousPrice } = useCart()
 
   return (
     <main className='products'>
@@ -16,7 +16,9 @@ export function Products ({ products }) {
             <li key={product.id}>
               <img src={product.thumbnail} alt={product.title} />
               <div>
-                <Link to={`/products/:${product.title}`}>{product.title}</Link> - ${product.price}
+                <Link to={`/products/:${product.title}`}>{product.title}</Link>
+                <br />
+                ${previousPrice(product.discountPercentage, product.price)} <span>{product.discountPercentage}% OFF</span> <del>${product.price}</del>
               </div>
               <div>
                 <button style={{backgroundColor: isProductInCart ? 'red' : '#09f'}} onClick={() => {

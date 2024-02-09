@@ -6,22 +6,14 @@ import { useParams } from "react-router-dom"
 import { useEffect } from 'react'
 import { Cart } from '../Cart/Cart'
 import { CardProduct } from './CardProduct'
-
-
-
-const previousPrice = (percentage, price) => {
-  const discount = percentage * price / 100
-  const finalPrice = price - discount
-  return finalPrice.toFixed(2)
-}
+import { useCart } from '../../hooks/useCart'
 
 export function ProductsDetails ({ products }) {
+  const { previousPrice } = useCart()
   const { productTitle } = useParams()
   const cleanedProductTitle = productTitle.substring(1)
   const productInView = products.find(product => product.title === cleanedProductTitle)
-  if(!productInView) return <h1>Producto no encontrado...</h1>
-
-  
+  if(!productInView) return <h1>Product not found...</h1>
   
   useEffect(() => {
     window.scrollTo(0, 0)
