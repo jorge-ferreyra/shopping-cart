@@ -1,19 +1,28 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/prop-types */
+import { useEffect, useState } from 'react'
 import { useCart } from '../../hooks/useCart'
 import { AddToCartIcon, RemoveFromCartIcon } from '../Icons/Icons'
 import { Link } from 'react-router-dom'
 
-const randomProducts = (products, count) => {
-  const shuffledProducts = products.sort(() => Math.random() - 0.5)
-  return shuffledProducts.slice(0, count)
-}
+
 
 export function CardProduct ({ classTitle, title, products, productInView }) {
   const { addToCart, removeFromCart, cart } = useCart()
-
+  const [randomProducts, setRandomProducts] = useState([])
   const checkProductInCart = product => {
     return cart.some(item => item.id === product.id)
   }
+
+  useEffect(() => {
+    const randomProducts = () => {
+      const shuffledProducts = products.sort(() => Math.random() - 0.5)
+      setRandomProducts(shuffledProducts)
+    }
+
+    randomProducts()
+  }, [])
+
   if (classTitle === 'similars') {
     return (
       <div className={`card-${classTitle}`}>
@@ -52,7 +61,7 @@ export function CardProduct ({ classTitle, title, products, productInView }) {
       </div>
     )
   } else {
-    const newProducts = randomProducts(products, 6)
+    const newProducts = randomProducts.slice(0, 5)
     return (
       <div className={`card-${classTitle}`}>
         <h2>{title}</h2>
