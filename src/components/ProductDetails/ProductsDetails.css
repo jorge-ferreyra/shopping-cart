@@ -106,28 +106,31 @@
   position: relative;
 }
 
-.card-similars img,
-.card-recommendations img {
-  width: 80%;
-  object-fit: cover;
-  aspect-ratio: 16/9;
-  margin-bottom: 24px;
-}
-
-.card-similars a,
-.card-recommendations a {
-  z-index: -1;
-}
-
-.card-similars li a::before,
-.card-recommendations li a::before {
+.card-similars li div .product-link::before {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
-  z-index: -1;
+  z-index: 10;
+}
+.card-recommendations li div .product-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+}
+
+.card-similars img,
+.card-recommendations img {
+  width: 80%;
+  object-fit: cover;
+  aspect-ratio: 16/9;
+  margin-bottom: 24px;
 }
 
 .card-similars li div span,
@@ -147,7 +150,8 @@
   margin-bottom: 24px;
 }
 
-.card-similars button,
-.card-recommendations button {
+.card-similars li button,
+.card-recommendations li button {
+  position: relative;
   z-index: 11;
 }

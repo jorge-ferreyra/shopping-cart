@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 
 export function CardProduct ({ classTitle, title, products, productInView }) {
   const { addToCart, removeFromCart, previousPrice, checkProductInCart, randomProducts, setRandomProducts } = useCart()
-  
+
   useEffect(() => {
     const randomProduct = () => {
       const shuffledProducts = products.sort(() => Math.random() - 0.5)
@@ -29,9 +29,9 @@ export function CardProduct ({ classTitle, title, products, productInView }) {
                 <li key={product.id}>
                   <img src={product.thumbnail} alt="" />
                   <div className='products-details'>
-                    <Link to={`/products/:${product.title}`}>{product.title}</Link>
+                    <Link className='product-link' to={`/products/:${product.title}`}>{product.title}</Link>
                     <br />
-                    $ {previousPrice(product.discountPercentage, product.price)} <span>{product.discountPercentage}</span> <del>${product.price}</del>
+                    $ {previousPrice(product.discountPercentage, product.price)} <span>{product.discountPercentage}% OFF</span> <del>${product.price}</del>
                   </div>
                   <div>
                     <button style={{backgroundColor: isProductInCart ? 'red' : '#09f'}} onClick={() => {
@@ -65,9 +65,9 @@ export function CardProduct ({ classTitle, title, products, productInView }) {
               <li key={product.id}>
                 <img src={product.thumbnail} alt="" />
                 <div className='products-details'>
-                  <Link to={`/products/:${product.title}`}>{product.title}</Link>
+                  <Link className='product-link' to={`/products/:${product.title}`}>{product.title}</Link>
                   <br />
-                  $ {previousPrice(product.discountPercentage, product.price)} <span>{product.discountPercentage}</span> <del>${product.price}</del>
+                  $ {previousPrice(product.discountPercentage, product.price)} <span>{product.discountPercentage}% OFF</span> <del>${product.price}</del>
                 </div>
                 <div>
                   <button style={{backgroundColor: isProductInCart ? 'red' : '#09f'}} onClick={() => {

@@ -17,7 +17,7 @@ export function ProductsDetails ({ products }) {
   
   useEffect(() => {
     window.scrollTo(0, 0)
-  }, [])
+  }, [productTitle])
 
   return (
     <>
