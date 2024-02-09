@@ -28,7 +28,7 @@ export function CardProduct ({ classTitle, title, products, productInView }) {
               return (
                 <li key={product.id}>
                   <img src={product.thumbnail} alt="" />
-                  <div>
+                  <div className='products-details'>
                     <Link to={`/products/:${product.title}`}>{product.title}</Link>
                     <br />
                     $ {previousPrice(product.discountPercentage, product.price)} <span>{product.discountPercentage}</span> <del>${product.price}</del>
@@ -64,11 +64,10 @@ export function CardProduct ({ classTitle, title, products, productInView }) {
             return (
               <li key={product.id}>
                 <img src={product.thumbnail} alt="" />
-                <div>
+                <div className='products-details'>
                   <Link to={`/products/:${product.title}`}>{product.title}</Link>
-                </div>
-                <div>
-                  <p>$ {product.price}</p>
+                  <br />
+                  $ {previousPrice(product.discountPercentage, product.price)} <span>{product.discountPercentage}</span> <del>${product.price}</del>
                 </div>
                 <div>
                   <button style={{backgroundColor: isProductInCart ? 'red' : '#09f'}} onClick={() => {
