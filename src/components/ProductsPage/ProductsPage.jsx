@@ -6,6 +6,7 @@ import { Cart } from '../Cart/Cart.jsx'
 import { Link } from 'react-router-dom'
 import { AddToCartIcon, RemoveFromCartIcon } from '../Icons/Icons.jsx'
 import { useCart } from '../../hooks/useCart.jsx'
+import { Header } from '../Header/Header.jsx'
 
 export function ProductsPage ({ products }) {
   const { addToCart, removeFromCart, checkProductInCart, previousPrice } = useCart()
@@ -21,6 +22,7 @@ export function ProductsPage ({ products }) {
             <img src={searchImg} alt="" />
           </a>
         </form>
+        <Header />
         <div className='products-main'>
           <ul className='products-list'>
             {products.map(product => {
