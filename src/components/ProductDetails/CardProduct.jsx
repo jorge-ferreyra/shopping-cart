@@ -5,12 +5,9 @@ import { useCart } from '../../hooks/useCart'
 import { AddToCartIcon, RemoveFromCartIcon } from '../Icons/Icons'
 import { Link } from 'react-router-dom'
 
-
-
 export function CardProduct ({ classTitle, title, products, productInView }) {
-  const { addToCart, removeFromCart, checkProductInCart, randomProducts, setRandomProducts } = useCart()
+  const { addToCart, removeFromCart, previousPrice, checkProductInCart, randomProducts, setRandomProducts } = useCart()
   
-
   useEffect(() => {
     const randomProduct = () => {
       const shuffledProducts = products.sort(() => Math.random() - 0.5)
@@ -33,9 +30,8 @@ export function CardProduct ({ classTitle, title, products, productInView }) {
                   <img src={product.thumbnail} alt="" />
                   <div>
                     <Link to={`/products/:${product.title}`}>{product.title}</Link>
-                  </div>
-                  <div>
-                    <p>$ {product.price}</p>
+                    <br />
+                    $ {previousPrice(product.discountPercentage, product.price)} <span>{product.discountPercentage}</span> <del>${product.price}</del>
                   </div>
                   <div>
                     <button style={{backgroundColor: isProductInCart ? 'red' : '#09f'}} onClick={() => {

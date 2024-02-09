@@ -91,7 +91,11 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
+  position: relative;
 }
+
+
 
 .card-similars img {
   width: 80%;
@@ -139,6 +143,30 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
+  position: relative;
+}
+
+.card-similars li a::before,
+.card-recommendations li a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.card-similars li div span,
+.card-recommendations li div span {
+  color: #09f;
+  font-size: 14px;
+}
+
+.card-similars li div del,
+.card-recommendations li div del {
+  color: grey;
+  font-size: 14px;
 }
 
 .card-recommendations img {
