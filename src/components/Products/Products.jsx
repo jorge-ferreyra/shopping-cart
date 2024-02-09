@@ -9,8 +9,9 @@ export function Products ({ products }) {
 
   return (
     <main className='products'>
+      {products.length === 0 && <h1>Products not found...</h1>}
       <ul>
-        {products.slice(0, 8).map(product => {
+        {products.slice(0, 12).map(product => {
           const isProductInCart = checkProductInCart(product)
           return (
             <li key={product.id}>

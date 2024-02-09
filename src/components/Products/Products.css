@@ -4,8 +4,17 @@
   justify-content: center;
   align-items: center;
 }
+
+.products h1 {
+  width: 380px;
+  margin-top: 50px;
+  font-size: 32px;
+  padding-bottom: 10px;
+  border-bottom: 1px dotted white;
+}
   
 .products ul {
+  width: 80%;
   display: grid;
   grid-template-columns: repeat(
     auto-fit,
