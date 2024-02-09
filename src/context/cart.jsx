@@ -73,11 +73,17 @@ const useCartReducer = () => {
 
 export function CartProvider ({ children }) {
   const [animationButton, setAnimationButton] = useState('')
+  const [randomProducts, setRandomProducts] = useState([])
   const { cart, addToCart, removeFromCart, clearCart} = useCartReducer()
+
+  const checkProductInCart = product => {
+    return cart.some(item => item.id === product.id)
+  }
 
   return (
     <CartContext.Provider value={{
-      cart, addToCart, removeFromCart, clearCart, animationButton, setAnimationButton
+      cart, addToCart, removeFromCart, clearCart, checkProductInCart,
+      animationButton, setAnimationButton, randomProducts, setRandomProducts
     }}>
       {children}
     </CartContext.Provider>

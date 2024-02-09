@@ -5,11 +5,7 @@ import { useCart } from '../../hooks/useCart.jsx'
 import { Link } from 'react-router-dom'
 
 export function Products ({ products }) {
-  const { addToCart, removeFromCart, cart } = useCart()
-
-  const checkProductInCart = product => {
-    return cart.some(item => item.id === product.id)
-  }
+  const { addToCart, removeFromCart, checkProductInCart } = useCart()
 
   return (
     <main className='products'>

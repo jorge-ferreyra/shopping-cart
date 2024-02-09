@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/prop-types */
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useCart } from '../../hooks/useCart'
 import { AddToCartIcon, RemoveFromCartIcon } from '../Icons/Icons'
 import { Link } from 'react-router-dom'
@@ -8,20 +8,17 @@ import { Link } from 'react-router-dom'
 
 
 export function CardProduct ({ classTitle, title, products, productInView }) {
-  const { addToCart, removeFromCart, cart } = useCart()
-  const [randomProducts, setRandomProducts] = useState([])
-  const checkProductInCart = product => {
-    return cart.some(item => item.id === product.id)
-  }
+  const { addToCart, removeFromCart, checkProductInCart, randomProducts, setRandomProducts } = useCart()
+  
 
   useEffect(() => {
-    const randomProducts = () => {
+    const randomProduct = () => {
       const shuffledProducts = products.sort(() => Math.random() - 0.5)
       setRandomProducts(shuffledProducts)
     }
 
-    randomProducts()
-  }, [])
+    randomProduct()
+  }, [productInView])
 
   if (classTitle === 'similars') {
     return (

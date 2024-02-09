@@ -8,11 +8,8 @@ import { AddToCartIcon, RemoveFromCartIcon } from '../Icons/Icons.jsx'
 import { useCart } from '../../hooks/useCart.jsx'
 
 export function ProductsPage ({ products }) {
-  const { addToCart, removeFromCart, cart } = useCart()
+  const { addToCart, removeFromCart, checkProductInCart } = useCart()
 
-  const checkProductInCart = product => {
-    return cart.some(item => item.id === product.id)
-  }
   return (
     <>
       <TopMenu />
