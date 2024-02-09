@@ -6,8 +6,9 @@ export function useFilters () {
 
   const filterProducts = (products) => {
     return products.filter(product => {
+      const realPrice = product.price - (product.discountPercentage * product.price / 100)
       return (
-        product.price >= filters.minPrice &&
+        realPrice >= filters.minPrice &&
         (
           filters.category === 'all' ||
           product.category === filters.category
