@@ -58,7 +58,7 @@ export function CartPage () {
                   </>
                 )})}
                 <div className='total-prices'>
-                  <h2>Total amount: ${totalToPay}</h2>
+                  <h2>Total amount: <span>${totalToPay}</span></h2>
                 </div>
                 <button onClick={clearCart}>
                   <ClearCartIcon />

@@ -146,6 +146,10 @@
   justify-content: space-between;
 }
 
+.cells-prices li span {
+  color: #09f;
+}
+
 .total-of-product {
   width: 25%;
   background-color: rgba(255, 255, 255, .02);
@@ -155,4 +159,8 @@
 
 .total-prices {
   text-align: center;
+}
+
+.total-prices span {
+  color: #09f;
 }
