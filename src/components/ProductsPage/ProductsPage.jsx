@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom'
 import { AddToCartIcon, RemoveFromCartIcon } from '../Icons/Icons.jsx'
 import { useCart } from '../../hooks/useCart.jsx'
 import { Header } from '../Header/Header.jsx'
+import { Footer } from '../Footer/Footer.jsx'
 
 export function ProductsPage ({ products }) {
   const { addToCart, removeFromCart, checkProductInCart, previousPrice } = useCart()
@@ -56,6 +57,7 @@ export function ProductsPage ({ products }) {
         
       </section>
       <Cart />
+      <Footer />
     </>
   )
 }
