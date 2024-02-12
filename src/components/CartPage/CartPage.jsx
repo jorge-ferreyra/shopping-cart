@@ -1,6 +1,7 @@
 import './CartPage.css'
 import { CartProvider } from "../../context/cart.jsx"
 import { TopMenu } from "../TopMenu/TopMenu.jsx"
+import { Footer } from '../Footer/Footer.jsx'
 import { useCart } from '../../hooks/useCart.jsx'
 import { ClearCartIcon, RemoveFromCartIcon } from '../Icons/Icons.jsx'
 import { Link } from 'react-router-dom'
@@ -67,6 +68,7 @@ export function CartPage () {
           </div>
         </div>
       </section>
+      <Footer />
     </CartProvider>
     
   )
