@@ -5,7 +5,7 @@ import { useEffect, useId } from "react";
 import { CartIcon, ClearCartIcon } from "../Icons/Icons";
 import { useCart } from '../../hooks/useCart';
 
-function CartItem ({ thumbnail, price, title, quantity, addToCart }) {
+function CartItem ({ thumbnail, price, title, quantity, addToCart, remove }) {
   return (
     <li>
       <img src={thumbnail} alt={title} />
@@ -16,6 +16,7 @@ function CartItem ({ thumbnail, price, title, quantity, addToCart }) {
         <small>
           Qty: {quantity}
         </small>
+        <button onClick={remove}>-</button>
         <button onClick={addToCart}>+</button>
       </footer>
     </li>
@@ -24,7 +25,7 @@ function CartItem ({ thumbnail, price, title, quantity, addToCart }) {
 
 export function Cart () {
   const cartCheckboxId = useId()
-  const { cart, clearCart, addToCart, animationButton, setAnimationButton } = useCart()
+  const { cart, clearCart, addToCart, removeOneFromCart, animationButton, setAnimationButton } = useCart()
 
   useEffect(() => {
     setAnimationButton('')
@@ -44,9 +45,9 @@ export function Cart () {
 
       <aside className={`cart ${animationButton}`}>
         <ul>
-          {cart.map(product => (
-            <CartItem key={product.id} {...product} addToCart={() => addToCart(product)} />
-          ))}
+          {cart.map(product => {if (product.quantity > 0) return (
+            <CartItem key={product.id} {...product} addToCart={() => addToCart(product)} remove={() => removeOneFromCart(product)} />
+          )})}
         </ul>
         <div className='cart-delete'>
           <button onClick={clearCart}>

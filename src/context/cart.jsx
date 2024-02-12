@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { createContext, useReducer, useState } from "react";
+import { createContext, useEffect, useReducer, useState } from "react";
 
 export const CartContext = createContext()
 
@@ -20,6 +20,28 @@ const reducer = (state, action) => {
     if (productInCartIndex >= 0) {
       const newState = structuredClone(state)
       newState[productInCartIndex].quantity += 1
+      updateLocalStorage(newState)
+      return newState
+    }
+
+    const newState = [
+      ...state,
+      {
+        ...actionPayload,
+        quantity: 1
+      }
+    ]
+
+    updateLocalStorage(newState)
+    return newState
+  }
+  case 'REMOVE_ONE_FROM_CART': {
+    const { id } = actionPayload
+    const productInCartIndex = state.findIndex(item => item.id === id)
+
+    if (productInCartIndex >= 0) {
+      const newState = structuredClone(state)
+      newState[productInCartIndex].quantity -= 1
       updateLocalStorage(newState)
       return newState
     }
@@ -58,6 +80,11 @@ const useCartReducer = () => {
     payload: product
   })
 
+  const removeOneFromCart = product => dispatch({
+    type: 'REMOVE_ONE_FROM_CART',
+    payload: product
+  })
+
   const removeFromCart = product => dispatch({
     type: 'REMOVE_FROM_CART',
     payload: product
@@ -68,13 +95,15 @@ const useCartReducer = () => {
     payload: product
   })
 
-  return { cart: state, addToCart, removeFromCart, clearCart }
+  return { cart: state, addToCart, removeOneFromCart, removeFromCart, clearCart }
 }
 
 export function CartProvider ({ children }) {
+  const [totalToPay, setTotalToPay] = useState(0)
   const [animationButton, setAnimationButton] = useState('')
   const [randomProducts, setRandomProducts] = useState([])
-  const { cart, addToCart, removeFromCart, clearCart} = useCartReducer()
+
+  const { cart, addToCart, removeOneFromCart, removeFromCart, clearCart } = useCartReducer()
 
   const previousPrice = (percentage, price) => {
     const discount = percentage * price / 100
@@ -82,15 +111,31 @@ export function CartProvider ({ children }) {
     return finalPrice.toFixed(2)
   }
 
+  useEffect(() => {
+    const calculateTotalToPay = () => {
+      let total = 0
+      cart.forEach(item => {
+        let netPrice = item.price - (item.discountPercentage * item.price / 100)
+        total += netPrice.toFixed(2) * item.quantity
+      })
+      setTotalToPay(total.toFixed(2))
+    }
+    calculateTotalToPay()
+  }, [cart])
+
+  const totalPriceProduct = (price, quantity) => {
+    return (price * quantity).toFixed(2)
+  }
+
   const checkProductInCart = product => {
-    return cart.some(item => item.id === product.id)
+    return cart.some(item => item.id === product.id && item.quantity > 0)
   }
 
   return (
     <CartContext.Provider value={{
-      cart, addToCart, removeFromCart, clearCart, checkProductInCart,
+      cart, addToCart, removeOneFromCart, removeFromCart, clearCart, checkProductInCart,
       animationButton, setAnimationButton, randomProducts, setRandomProducts,
-      previousPrice
+      previousPrice, totalPriceProduct, totalToPay
     }}>
       {children}
     </CartContext.Provider>
