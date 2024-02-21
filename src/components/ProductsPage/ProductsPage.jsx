@@ -26,7 +26,7 @@ export function ProductsPage ({ products }) {
         <h1>Products</h1>
         <form className='searchProduct' action="">
           <input id='searchProducts' type="text" placeholder='Enter a product to search...' value={browser} onChange={handleInputChange}/>
-          <Link to={`/products/search?keyword=${browser}`}>
+          <Link to={`/products/search?q=${browser}`}>
             <img src={searchImg} alt="" />
           </Link>
         </form>
