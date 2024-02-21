@@ -8,9 +8,16 @@ import { AddToCartIcon, RemoveFromCartIcon } from '../Icons/Icons.jsx'
 import { useCart } from '../../hooks/useCart.jsx'
 import { Header } from '../Header/Header.jsx'
 import { Footer } from '../Footer/Footer.jsx'
+import { useState } from 'react'
 
 export function ProductsPage ({ products }) {
   const { addToCart, removeFromCart, checkProductInCart, previousPrice } = useCart()
+  const [browser, setBrowser] = useState('')
+
+  const handleInputChange = (event) => {
+    const value = event.target.value
+    setBrowser(value)
+  }
 
   return (
     <>
@@ -18,10 +25,10 @@ export function ProductsPage ({ products }) {
       <section className="products-section">
         <h1>Products</h1>
         <form className='searchProduct' action="">
-          <input id='searchProducts' type="text" placeholder='Enter a product to search...' />
-          <a href="">
+          <input id='searchProducts' type="text" placeholder='Enter a product to search...' value={browser} onChange={handleInputChange}/>
+          <Link to={`/products/search?keyword=${browser}`}>
             <img src={searchImg} alt="" />
-          </a>
+          </Link>
         </form>
         <Header />
         <div className='products-main'>
