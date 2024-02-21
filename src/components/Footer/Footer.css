@@ -1,15 +1,24 @@
 .footer {
   width: 100%;
-  height: 300px;
+  height: 200px;
   background: rgba(0, 0, 0, .7);
-  margin-top: 40px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
 
 .footer .infoProject {
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.infoProject h4,
+.infoProject p {
+  margin: 12px 0;
 }
 
 .infoProject span {
@@ -19,7 +28,7 @@
 .socialMedias {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 10px;
 }
 
 .socialMedias a svg {
