@@ -25,8 +25,15 @@
   justify-content: center;
 }
 
+.product-title-row {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
 .product-title h1 {
   margin-top: 0;
+  margin-bottom: 18px;
 }
 
 .product-title span {
