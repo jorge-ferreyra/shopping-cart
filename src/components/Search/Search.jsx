@@ -1,5 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useLocation } from 'react-router-dom'
+import { TopMenu } from '../TopMenu/TopMenu'
+import { Cart } from '../Cart/Cart'
 import './Search.css'
 
 export function Search ({ products }) {
@@ -11,8 +13,10 @@ export function Search ({ products }) {
   if (!productInView) return <h1>Product not found...</h1>;
 
   return (
-    <div>
+    <section className='search-section'>
+      <TopMenu />
+      <Cart />
       <h1>{`Search Results for product ${productInView.title}`}</h1>
-    </div>
+    </section>
   );
 }

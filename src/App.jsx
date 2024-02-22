@@ -18,7 +18,7 @@ function App() {
         <Route path='/products' element={<ProductsPage products={filteredProducts} />}/>
         <Route path='/cart' element={<CartPage />}/>
         <Route path='/products/:productTitle' element={<ProductsDetails products={listProducts}/>}/>
-        <Route path='/products/q' element={<Search products={listProducts}/>}/>
+        <Route path='/products/search' element={<Search products={listProducts}/>}/>
       </Routes>
     </BrowserRouter>
   )
