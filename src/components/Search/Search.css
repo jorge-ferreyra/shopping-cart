@@ -5,3 +5,46 @@
   flex-direction: column;
   align-items: center;
 }
+
+.search-header span {
+  color: #646cff;
+}
+
+.search-results {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.search-results li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 32px;
+  background-color: black;
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.results-head {
+  display: flex;
+  height: 50px;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.results-head h1 {
+  margin: 0;
+  margin-right: 24px;
+}
+
+.results-head-price {
+  display: flex;
+  padding: 30px;
+  align-items: center;
+}
+
+.results-head-price h2 {
+  margin: 0;
+  margin-right: 12px;
+}
