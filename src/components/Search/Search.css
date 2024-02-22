@@ -24,6 +24,7 @@
   background-color: black;
   border-radius: 12px;
   padding: 24px;
+  position: relative;
 }
 
 .results-head {
@@ -33,9 +34,20 @@
   margin-bottom: 24px;
 }
 
-.results-head h1 {
+.results-head a {
+  font-size: 40px;
+  font-weight: bold;
   margin: 0;
   margin-right: 24px;
+}
+
+.results-head a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 .results-head-price {
@@ -47,4 +59,13 @@
 .results-head-price h2 {
   margin: 0;
   margin-right: 12px;
+}
+
+.results-head-price span {
+  color: #09f;
+  padding-top: 4px;
+}
+
+.results-head-price del {
+  color: gray;
 }

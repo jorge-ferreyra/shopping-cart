@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { TopMenu } from '../TopMenu/TopMenu'
 import { Cart } from '../Cart/Cart'
 import './Search.css'
@@ -31,7 +31,7 @@ export function Search ({ products }) {
         {matchingProducts.map(product => (
           <li key={product.id}>
             <div className='results-head'>
-              <h1>{product.title}</h1>
+              <Link to={`/products/:${product.title}`}>{product.title}</Link>
               <div className='results-head-price'>
                 <h2>${previousPrice(product.discountPercentage, product.price)}</h2>
                 <span>{product.discountPercentage}% OFF <del>${product.price}</del></span>
