@@ -11,6 +11,7 @@ import { Search } from './components/Search/Search.jsx'
 function App() {
   const { filterProducts } = useFilters()
   const filteredProducts = filterProducts(listProducts)
+
   return (
     <BrowserRouter>
       <Routes>
