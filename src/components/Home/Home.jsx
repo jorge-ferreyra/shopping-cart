@@ -3,17 +3,23 @@ import { Products } from '../Products/Products.jsx'
 import { Footer } from '../Footer/Footer.jsx'
 import { TopMenu } from '../TopMenu/TopMenu.jsx'
 import { Cart } from '../Cart/Cart.jsx'
-
-import { IS_DEVELOPMENT } from '../../config.js'
+import { useEffect } from 'react'
 
 export function Home () {
+  useEffect(() =>       {
+    fetch('https://dummyjson.com/products')
+      .then(res => res.json())
+      .then(data => {
+        console.log(data)
+      })
+  }, [])
   return (
     <section className='main-section'>
       <TopMenu />
       <h1>React Shop</h1>
       <Cart />
       <Products products={listProducts} />
-      { IS_DEVELOPMENT && <Footer />}
+      <Footer />
     </section>
   )
 }

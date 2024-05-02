@@ -1,5 +1,5 @@
 import './App.css'
-import { products as listProducts } from './mocks/products.json'
+import { products as listProducts } from './mocks/newProducts.json'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { Home } from './components/Home/Home.jsx'
 import { ProductsPage } from './components/ProductsPage/ProductsPage.jsx'
