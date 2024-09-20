@@ -1,4 +1,4 @@
-import { products as listProducts } from '../../mocks/products.json'
+import { products as listProducts } from '../../mocks/newProducts.json'
 import { Products } from '../Products/Products.jsx'
 import { Footer } from '../Footer/Footer.jsx'
 import { TopMenu } from '../TopMenu/TopMenu.jsx'
