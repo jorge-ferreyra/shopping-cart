@@ -10,7 +10,7 @@ import { useCart } from '../../hooks/useCart'
 import { AddToCartIcon, RemoveFromCartIcon } from '../Icons/Icons'
 
 export function ProductsDetails ({ products }) {
-  const { previousPrice, checkProductInCart, removeFromCart, addToCart } = useCart()
+  const { previousPrice, checkProductInCart, removeFromCart, addToCart, removeOneFromCart } = useCart()
   const { productTitle } = useParams()
   const cleanedProductTitle = productTitle.substring(1)
   const productInView = products.find(product => product.title === cleanedProductTitle)
@@ -31,7 +31,7 @@ export function ProductsDetails ({ products }) {
           <div className="product-title">
             
             <h1>{productInView.title}</h1>
-              
+            <h2 className="product-brand">{productInView.brand}</h2>
             
             <div className='product-title-row'>
               <h2>${previousPrice(productInView.discountPercentage, productInView.price)} <span>{productInView.discountPercentage}% OFF</span> <del>${productInView.price}</del></h2>
@@ -46,6 +46,13 @@ export function ProductsDetails ({ products }) {
                     : <AddToCartIcon />
                 }
               </button>
+              <small className='product-stock'>
+                Stock: {productInView.stock}
+                <span>
+                  <button onClick={() => removeOneFromCart(productInView)}>-</button>
+                  <button onClick={() => addToCart(productInView)}>+</button>
+                </span>
+              </small>
             </div>
             <h3>Rating {productInView.rating}</h3>
             <p>Stock: {productInView.stock} units</p>

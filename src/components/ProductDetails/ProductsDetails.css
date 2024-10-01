@@ -18,7 +18,7 @@
 .product-title {
   grid-column: 2;
   grid-row: 1;
-  width: 80%;
+  width: 90%;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -28,12 +28,42 @@
 .product-title-row {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 10px;
+}
+
+.product-stock {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.product-stock span {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.product-stock span button {
+  width: 30px;
+  height: 30px;
+  padding: 0;
 }
 
 .product-title h1 {
   margin-top: 0;
   margin-bottom: 18px;
+}
+
+.product-title h2 {
+  width: 100%;
+}
+
+.product-brand {
+  color:#09f;
+  margin: 0;
 }
 
 .product-title span {
