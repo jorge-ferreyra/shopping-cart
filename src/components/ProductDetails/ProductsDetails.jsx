@@ -62,8 +62,25 @@ export function ProductsDetails ({ products }) {
             <p>Depth: {productInView.dimensions.depth}cm</p>
           </div>
           <div className='product-description'>
+            <h1>Description</h1>
             <p>{productInView.description}</p>
-            
+          </div>
+          <div className='product-reviews'>
+            <h1>Reviews</h1>
+            <ul className='review'>
+              {productInView.reviews.map(review => {
+                return(
+                  <li key={review.reviewerName}>
+                    <h2>{review.reviewerName}</h2>
+                    <h3>Rating: {review.rating}/5</h3>
+                    <div className='review-description'>
+                      <p>{review.comment}</p>
+                      <span>{review.date}</span>
+                    </div>
+                  </li>
+                )
+              })}
+            </ul>
           </div>
           <CardProduct classTitle='similars' title='Similar Products' products={products} productInView={productInView} />
           <CardProduct classTitle='recommendations' title='Recommended Products' products={products} productInView={productInView} />
