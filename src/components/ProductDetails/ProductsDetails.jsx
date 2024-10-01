@@ -10,7 +10,7 @@ import { useCart } from '../../hooks/useCart'
 import { AddToCartIcon, RemoveFromCartIcon } from '../Icons/Icons'
 
 export function ProductsDetails ({ products }) {
-  const { previousPrice, checkProductInCart, removeFromCart, addToCart, removeOneFromCart } = useCart()
+  const { previousPrice, checkProductInCart, removeFromCart, addToCart } = useCart()
   const { productTitle } = useParams()
   const cleanedProductTitle = productTitle.substring(1)
   const productInView = products.find(product => product.title === cleanedProductTitle)
@@ -34,7 +34,9 @@ export function ProductsDetails ({ products }) {
             <h2 className="product-brand">{productInView.brand}</h2>
             
             <div className='product-title-row'>
-              <h2>${previousPrice(productInView.discountPercentage, productInView.price)} <span>{productInView.discountPercentage}% OFF</span> <del>${productInView.price}</del></h2>
+              <div className='product-prices'>
+                <h2>${previousPrice(productInView.discountPercentage, productInView.price)} <span>{productInView.discountPercentage}% OFF</span> <del>${productInView.price}</del></h2>
+              </div>
               <button style={{backgroundColor: isProductInCart ? 'red' : '#09f'}} onClick={() => {
                 isProductInCart
                   ? removeFromCart(productInView)
@@ -46,19 +48,18 @@ export function ProductsDetails ({ products }) {
                     : <AddToCartIcon />
                 }
               </button>
-              <small className='product-stock'>
-                Stock: {productInView.stock}
-                <span>
-                  <button onClick={() => removeOneFromCart(productInView)}>-</button>
-                  <button onClick={() => addToCart(productInView)}>+</button>
-                </span>
-              </small>
             </div>
             <h3>Rating {productInView.rating}</h3>
             <p>Stock: {productInView.stock} units</p>
           </div>
           <div className="image-container">
             <img src={productInView.thumbnail} alt="" />
+          </div>
+          <div className='product-dimensions'>
+            <h1>Dimensions</h1>
+            <p>Width: {productInView.dimensions.width}cm</p>
+            <p>Height: {productInView.dimensions.height}cm</p>
+            <p>Depth: {productInView.dimensions.depth}cm</p>
           </div>
           <div className='product-description'>
             <p>{productInView.description}</p>
