@@ -7,9 +7,12 @@ import { Link } from 'react-router-dom'
 export function Products ({ products }) {
   const { addToCart, removeFromCart, checkProductInCart, previousPrice } = useCart()
 
+  if (!Array.isArray(products) || products.length === 0) {
+    return <h1>{Array.isArray(products) && products.length === 0 ? 'Products not found...' : 'Loading products...'}</h1>;
+  }
+
   return (
     <main className='products'>
-      {products.length === 0 && <h1>Products not found...</h1>}
       <ul>
         {products.slice(0, 12).map(product => {
           const isProductInCart = checkProductInCart(product)
@@ -17,7 +20,7 @@ export function Products ({ products }) {
             <li key={product.id}>
               <img src={product.thumbnail} alt={product.title} />
               <div>
-                <Link to={`/products/:${product.title}`}>{product.title}</Link>
+                <Link to={`/products/${product.id}`}>{product.title}</Link>
                 <br />
                 ${previousPrice(product.discountPercentage, product.price)} <span>{product.discountPercentage}% OFF</span> <del>${product.price}</del>
               </div>

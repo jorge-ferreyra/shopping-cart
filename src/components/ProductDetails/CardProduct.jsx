@@ -29,7 +29,7 @@ export function CardProduct ({ classTitle, title, products, productInView }) {
                 <li key={product.id}>
                   <img src={product.thumbnail} alt="" />
                   <div className='products-details'>
-                    <Link className='product-link' to={`/products/:${product.title}`}>{product.title}</Link>
+                    <Link className='product-link' to={`/products/${product.id}`}>{product.title}</Link>
                     <br />
                     $ {previousPrice(product.discountPercentage, product.price)} <span>{product.discountPercentage}% OFF</span> <del>${product.price}</del>
                   </div>
@@ -65,7 +65,7 @@ export function CardProduct ({ classTitle, title, products, productInView }) {
               <li key={product.id}>
                 <img src={product.thumbnail} alt="" />
                 <div className='products-details'>
-                  <Link className='product-link' to={`/products/:${product.title}`}>{product.title}</Link>
+                  <Link className='product-link' to={`/products/${product.id}`}>{product.title}</Link>
                   <br />
                   $ {previousPrice(product.discountPercentage, product.price)} <span>{product.discountPercentage}% OFF</span> <del>${product.price}</del>
                 </div>

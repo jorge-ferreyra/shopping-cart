@@ -11,16 +11,16 @@ import { AddToCartIcon, RemoveFromCartIcon } from '../Icons/Icons'
 
 export function ProductsDetails ({ products }) {
   const { previousPrice, checkProductInCart, removeFromCart, addToCart } = useCart()
-  const { productTitle } = useParams()
-  const cleanedProductTitle = productTitle.substring(1)
-  const productInView = products.find(product => product.title === cleanedProductTitle)
+  const { productId } = useParams()
+  const productInView = products.find(product => product.id === parseInt(productId))
+
   if(!productInView) return <h1>Product not found...</h1>
 
   const isProductInCart = checkProductInCart(productInView)
   
   useEffect(() => {
     window.scrollTo(0, 0)
-  }, [productTitle])
+  }, [productId])
 
   return (
     <>

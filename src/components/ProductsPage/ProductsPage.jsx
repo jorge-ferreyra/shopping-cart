@@ -44,11 +44,15 @@ export function ProductsPage ({ products }) {
           <ul className='products-list'>
             {products.map(product => {
               const isProductInCart = checkProductInCart(product)
+
+              const expectedLinkTarget = `/products/${product.id}`;
+              console.log(`PRODUCT: "${product.title}", ID: ${product.id}, EXPECTED LINK TO: ${expectedLinkTarget}`);
+
               return (
                 <li key={product.id}>
                   <img src={product.thumbnail} alt={product.title} />
                   <div>
-                    <Link to={`/products/:${product.title}`}>{product.title}</Link>
+                    <Link to={`/products/${product.id}`}>{product.title}</Link>
                     <br />
                     ${previousPrice(product.discountPercentage, product.price)} <span>{product.discountPercentage}% OFF</span> <del>${product.price}</del>
                   </div>
